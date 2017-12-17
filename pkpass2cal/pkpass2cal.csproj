@@ -81,11 +81,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="GCalManager.cs" />
+    <Compile Include="Calendar\GCalManager.cs" />
     <Compile Include="PkpassProcessors\IPkpassProcessor.cs" />
     <Compile Include="PkpassData.cs" />
     <Compile Include="PkpassManager.cs" />
     <Compile Include="Factories\PkpassProcessorFactory.cs" />
+    <Compile Include="PkpassProcessors\KinepolisProcessor.cs" />
     <Compile Include="PkpassProcessors\RenfeProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
