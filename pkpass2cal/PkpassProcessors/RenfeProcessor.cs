@@ -1,5 +1,5 @@
-﻿using pkpass2cal.Configuration;
-using pkpass2cal.Dropbox;
+﻿using pkpass2cal.CloudServices;
+using pkpass2cal.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +14,11 @@ namespace pkpass2cal.PkpassProcessors
 
         public RenfeProcessor()
         {
-            cloudStorageHelper = GetCloudStorage();
-        }
-
-        public ICloudStorageHelper GetCloudStorage()
-        {
-            return new DropboxHelper();
+            cloudStorageHelper = CloudServiceFactory.CreateCloudService();
         }
 
         public virtual PkpassData GetData(Uri uri)
         {
-            //string fileName = cloudStorageHelper.GetHomePath() + @"\Aplicaciones\Mobile Downloads\" + uri.Query.Split(new char[] { '/' }).Last();
             string fileName = cloudStorageHelper.GetHomePath() + Config.CloudService.LocalDirectory + uri.Query.Split(new char[] { '/' }).Last();
             //https://venta.renfe.com/vol/passbookEmail.do?pkpass=2017-12-26/MKH2KS0CNH34N9B5XE56OM.pkpass
             string fileUrl = "https://w4.renfe.es/passbook/" + uri.Query.Split(new char[] { '=' }).Last();
@@ -57,7 +51,5 @@ namespace pkpass2cal.PkpassProcessors
                 Convert.ToInt32(timeParts[0]), Convert.ToInt32(timeParts[1]), 0);
             return returnedValue;
         }
-
-        
     }
 }

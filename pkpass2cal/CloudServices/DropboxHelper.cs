@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace pkpass2cal.Dropbox
+namespace pkpass2cal.CloudServices
 {
     public class DropboxHelper : ICloudStorageHelper
     {

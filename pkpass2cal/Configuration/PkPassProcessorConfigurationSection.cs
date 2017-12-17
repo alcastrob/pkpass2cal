@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
-using System.Collections.Specialized;
+﻿using System.Configuration;
 
 namespace pkpass2cal.Configuration
 {
@@ -37,6 +31,31 @@ namespace pkpass2cal.Configuration
             get
             {
                 return this["localDirectory"].ToString();
+            }
+        }
+
+        [ConfigurationProperty("type", IsKey = false, IsRequired = true)]
+        public string Type
+        {
+            get
+            {
+                return this["type"].ToString();
+            }
+        }
+
+        [ConfigurationProperty("assembly", IsKey = false, IsRequired = false)]
+        public string Assembly
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(this["assembly"].ToString()))
+                {
+                    return this["assembly"].ToString();
+                }
+                else
+                {
+                    return System.Reflection.Assembly.GetExecutingAssembly().FullName;
+                }
             }
         }
     }
@@ -84,7 +103,14 @@ namespace pkpass2cal.Configuration
         {
             get
             {
-                return this["assembly"].ToString();
+                if (string.IsNullOrWhiteSpace(this["assembly"].ToString()))
+                {
+                    return this["assembly"].ToString();
+                }
+                else
+                {
+                    return System.Reflection.Assembly.GetExecutingAssembly().FullName;
+                }
             }
         }
     }

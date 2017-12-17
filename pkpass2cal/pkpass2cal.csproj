@@ -63,9 +63,10 @@
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\IPkPassProcessorConfigurationSection.cs" />
     <Compile Include="Configuration\PkPassProcessorConfigurationSection.cs" />
-    <Compile Include="Dropbox\DropboxConfig.cs" />
-    <Compile Include="Dropbox\DropboxHelper.cs" />
-    <Compile Include="Dropbox\ICloudStorageHelper.cs" />
+    <Compile Include="CloudServices\DropboxConfig.cs" />
+    <Compile Include="CloudServices\DropboxHelper.cs" />
+    <Compile Include="CloudServices\ICloudStorageHelper.cs" />
+    <Compile Include="Factories\CloudServiceFactory.cs" />
     <Compile Include="FileDownloader.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -77,7 +78,7 @@
     <Compile Include="PkpassProcessors\IPkpassProcessor.cs" />
     <Compile Include="PkpassData.cs" />
     <Compile Include="PkpassManager.cs" />
-    <Compile Include="PkpassProcessorFactory.cs" />
+    <Compile Include="Factories\PkpassProcessorFactory.cs" />
     <Compile Include="PkpassProcessors\RenfeProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

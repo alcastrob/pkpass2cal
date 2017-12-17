@@ -1,5 +1,4 @@
 ﻿using pkpass2cal.Configuration;
-using pkpass2cal.Dropbox;
 using System;
 using System.Configuration;
 

@@ -1,5 +1,4 @@
 ﻿using pkpass2cal.Configuration;
-using pkpass2cal.Dropbox;
 using System;
 
 namespace pkpass2cal
@@ -8,6 +7,5 @@ namespace pkpass2cal
     {
         PkpassData GetData(Uri uri);
         void Process(PkpassData data, Uri fileUri);
-        ICloudStorageHelper GetCloudStorage();
     }
 }

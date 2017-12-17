@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace pkpass2cal.Dropbox
+namespace pkpass2cal.CloudServices
 {
     internal class Personal
     {
