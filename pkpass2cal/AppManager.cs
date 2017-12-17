@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkpass2cal
 {
@@ -12,15 +8,15 @@ namespace pkpass2cal
         {
             Uri fileUri = new Uri(url);
             IPkpassProcessor processor = PkpassProcessorFactory.CreateByUri(fileUri);
-            PkpassData data = processor.GetData(fileUri);
+            PkpassData data = processor.DownloadData(fileUri);
             processor.Process(data, fileUri);            
         }
 
-        internal void ProcessFile(string file)
+        internal void ProcessFile(string filePath)
         {
-            throw new NotImplementedException();
+            IPkpassProcessor processor = PkpassProcessorFactory.CreateByFile(filePath);
+            PkpassData data = processor.GetData(filePath);
+            processor.Process(data);
         }
-
-        
     }
 }

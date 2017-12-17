@@ -48,6 +48,9 @@
       <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,12 +63,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppManager.cs" />
+    <Compile Include="Configuration\CloudServiceConfigurationElement.cs" />
     <Compile Include="Configuration\Config.cs" />
-    <Compile Include="Configuration\IPkPassProcessorConfigurationSection.cs" />
     <Compile Include="Configuration\PkPassProcessorConfigurationSection.cs" />
     <Compile Include="CloudServices\DropboxConfig.cs" />
     <Compile Include="CloudServices\DropboxHelper.cs" />
     <Compile Include="CloudServices\ICloudStorageHelper.cs" />
+    <Compile Include="Configuration\PkpassProcessorDomainCollection.cs" />
+    <Compile Include="Configuration\PkpassProcessorDomainElement.cs" />
+    <Compile Include="Configuration\PkpassProcessorIssuerCollection.cs" />
+    <Compile Include="Configuration\PkpassProcessorIssuerElement.cs" />
     <Compile Include="Factories\CloudServiceFactory.cs" />
     <Compile Include="FileDownloader.cs" />
     <Compile Include="Form1.cs">

@@ -9,8 +9,15 @@ namespace pkpass2cal
         public static IPkpassProcessor CreateByUri(Uri uri)
         {
             var configData = Config.UrlDownloaderList.Get(uri.Host);        
+            IPkpassProcessor returnedValue = (IPkpassProcessor)Activator.CreateInstance(configData.Assembly, configData.Type).Unwrap();            
+            return returnedValue;
+        }
+
+        public static IPkpassProcessor CreateByFile(string filePath)
+        {
+            var pass = PkpassManager.OpenPkpass(filePath);            
+            var configData = Config.PassTypeList.Get(pass.passTypeIdentifier);
             IPkpassProcessor returnedValue = (IPkpassProcessor)Activator.CreateInstance(configData.Assembly, configData.Type).Unwrap();
-            
             return returnedValue;
         }
     }

@@ -5,7 +5,9 @@ namespace pkpass2cal
 {
     internal interface IPkpassProcessor
     {
-        PkpassData GetData(Uri uri);
+        PkpassData DownloadData(Uri uri);
+        PkpassData GetData(string filePath);
         void Process(PkpassData data, Uri fileUri);
+        void Process(PkpassData data);
     }
 }

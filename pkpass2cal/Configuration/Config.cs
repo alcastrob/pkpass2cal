@@ -11,7 +11,7 @@ namespace pkpass2cal.Configuration
     {
         static PkPassProcessorConfigurationSection config = ConfigurationManager.GetSection("pkpassProcessorConfiguration") as PkPassProcessorConfigurationSection;
 
-        public static PkpassProcessorCollection UrlDownloaderList
+        public static PkpassProcessorDomainCollection UrlDownloaderList
         {
             get
             {
@@ -19,11 +19,19 @@ namespace pkpass2cal.Configuration
             }
         }
 
-        public static CloudService CloudService
+        public static CloudServiceConfigurationElement CloudService
         {
             get
             {
                 return config.CloudService;
+            }
+        }
+
+        public static PkpassProcessorIssuerCollection PassTypeList
+        {
+            get
+            {
+                return config.PassTypeList;
             }
         }
     }
