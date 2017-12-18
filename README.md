@@ -23,5 +23,5 @@ Initial release
 
 ## License
 
-pkpass2cal is released under the MIT license (http://www.opensource.org/licenses/MIT)
-Train icon is authord by Roundicons and licensed free for non commercial use (http://www.iconspedia.com/icon/train-icon-48115.html)
+pkpass2cal is released under the MIT license (http://www.opensource.org/licenses/MIT).
+Train icon is authord by Roundicons and licensed free for non commercial use (http://www.iconspedia.com/icon/train-icon-48115.html).
