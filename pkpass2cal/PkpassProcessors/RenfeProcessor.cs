@@ -1,11 +1,8 @@
 ﻿using pkpass2cal.CloudServices;
 using pkpass2cal.Configuration;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace pkpass2cal.PkpassProcessors
 {

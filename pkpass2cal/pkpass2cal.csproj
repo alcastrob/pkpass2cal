@@ -83,7 +83,7 @@
     </Compile>
     <Compile Include="Calendar\GCalManager.cs" />
     <Compile Include="PkpassProcessors\IPkpassProcessor.cs" />
-    <Compile Include="PkpassData.cs" />
+    <Compile Include="Entities\PkpassData.cs" />
     <Compile Include="PkpassManager.cs" />
     <Compile Include="Factories\PkpassProcessorFactory.cs" />
     <Compile Include="PkpassProcessors\KinepolisProcessor.cs" />
