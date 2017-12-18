@@ -31,7 +31,10 @@ namespace pkpass2cal
             InitializeComponent();
             AllowDrop = true;
             manager = new AppManager();
-            this.Text = filePath;
+            if (Path.GetExtension(filePath) == ".pkpass")
+            {
+                manager.ProcessFile(filePath);
+            }
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
