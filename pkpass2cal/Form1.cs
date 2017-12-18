@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace pkpass2cal
@@ -31,7 +24,10 @@ namespace pkpass2cal
             InitializeComponent();
             AllowDrop = true;
             manager = new AppManager();
-            this.Text = filePath;
+            if (Path.GetExtension(filePath) == ".pkpass")
+            {
+                manager.ProcessFile(filePath);
+            }
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
