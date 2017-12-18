@@ -14,9 +14,16 @@ namespace pkpass2cal
         [STAThread]
         static void Main()
         {
+            string[] args = Environment.GetCommandLineArgs();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            if (args.Length == 2)
+            {
+                //A file is dragged to the app icon when it's not even started. No problem.
+                Application.Run(new Form1(args[1]));
+            }
+            else
+                Application.Run(new Form1());
         }
     }
 }

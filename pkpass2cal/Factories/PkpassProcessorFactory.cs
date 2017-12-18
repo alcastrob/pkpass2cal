@@ -16,7 +16,7 @@ namespace pkpass2cal
         public static IPkpassProcessor CreateByFile(string filePath)
         {
             var pass = PkpassManager.OpenPkpass(filePath);            
-            var configData = Config.PassTypeList.Get(pass.passTypeIdentifier);
+            var configData = Config.PassTypeList.Get(pass.PassTypeIdentifier);
             IPkpassProcessor returnedValue = (IPkpassProcessor)Activator.CreateInstance(configData.Assembly, configData.Type).Unwrap();
             return returnedValue;
         }

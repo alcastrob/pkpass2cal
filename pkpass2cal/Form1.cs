@@ -22,6 +22,18 @@ namespace pkpass2cal
             manager = new AppManager();
         }
 
+        /// <summary>
+        /// Constructor of the form used when the user drags a file directly to the application whenever it's not started.
+        /// </summary>
+        /// <param name="filePath">The local path for the pkpass file</param>
+        public Form1(string filePath)
+        {
+            InitializeComponent();
+            AllowDrop = true;
+            manager = new AppManager();
+            this.Text = filePath;
+        }
+
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetFormats().Contains("UniformResourceLocator"))

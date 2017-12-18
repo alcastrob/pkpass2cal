@@ -53,12 +53,12 @@ namespace pkpass2cal.PkpassProcessors
 
         private (string, DateTime, DateTime, string) ParseData(PkpassData data)
         {
-            string title = "AVE a " + data.boardingPass.primaryFields.First(p => p.Key == "destino").Label;
-            DateTime startTime = ConvertDateTime(data.boardingPass.headerFields.First(p => p.Key == "destinofecha").Value,
-                data.boardingPass.primaryFields.First(p => p.Key == "boardingTime").Value);
-            DateTime endTime = ConvertDateTime(data.boardingPass.headerFields.First(p => p.Key == "destinofecha").Value,
-                data.boardingPass.primaryFields.First(p => p.Key == "destino").Value);
-            var location = data.boardingPass.primaryFields.First(p => p.Key == "boardingTime").Label;
+            string title = "AVE a " + data.BoardingPass.PrimaryFields.First(p => p.Key == "destino").Label;
+            DateTime startTime = ConvertDateTime(data.BoardingPass.HeaderFields.First(p => p.Key == "destinofecha").Value,
+                data.BoardingPass.PrimaryFields.First(p => p.Key == "boardingTime").Value);
+            DateTime endTime = ConvertDateTime(data.BoardingPass.HeaderFields.First(p => p.Key == "destinofecha").Value,
+                data.BoardingPass.PrimaryFields.First(p => p.Key == "destino").Value);
+            var location = data.BoardingPass.PrimaryFields.First(p => p.Key == "boardingTime").Label;
 
             return (title, startTime, endTime, location);
         }

@@ -49,10 +49,10 @@ namespace pkpass2cal.PkpassProcessors
 
         private (string, DateTime, DateTime, string) ParseData(PkpassData data)
         {
-            string title = data.eventTicket.primaryFields.First(t => t.Key == "EVENTNAME").Value;
-            DateTime startTime = DateTime.Parse(data.relevantDate);
+            string title = data.EventTicket.PrimaryFields.First(t => t.Key == "EVENTNAME").Value;
+            DateTime startTime = DateTime.Parse(data.RelevantDate);
             DateTime endTime = startTime.AddHours(2.5); //By default
-            var location = $"{data.organizationName} {data.logoText}";
+            var location = $"{data.OrganizationName} {data.LogoText}";
 
             return (title, startTime, endTime, location);
         }
