@@ -20,7 +20,9 @@ namespace pkpass2cal.PkpassProcessors
 
         public virtual PkpassData DownloadData(Uri uri)
         {
-            throw new NotImplementedException();
+            string destinationFileName = cloudStorageHelper.GetHomePath() + Config.CloudService.LocalDirectory + uri.Query.Split(new char[] { '/' }).Last();
+            FileDownloader.DownloadFile(uri.AbsoluteUri, destinationFileName);
+            return PkpassManager.OpenPkpass(destinationFileName);
         }
 
         public PkpassData GetData(string filePath)
@@ -56,15 +58,5 @@ namespace pkpass2cal.PkpassProcessors
 
             return (title, startTime, endTime, location);
         }
-
-        protected DateTime ConvertDateTime(string date, string time)
-        {
-            string[] dateParts = date.Split(new char[] { '/' });
-            string[] timeParts = time.Split(new char[] { ':' });
-
-            DateTime returnedValue = new DateTime(Convert.ToInt32(dateParts[2]), Convert.ToInt32(dateParts[1]), Convert.ToInt32(dateParts[0]),
-                Convert.ToInt32(timeParts[0]), Convert.ToInt32(timeParts[1]), 0);
-            return returnedValue;
-        }       
     }
 }

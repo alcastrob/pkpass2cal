@@ -4,17 +4,17 @@ namespace pkpass2cal.Configuration
 {
     class PkPassProcessorConfigurationSection : ConfigurationSection
     {
-        [ConfigurationProperty("pkpassProcessorDomainList")]
-        public PkpassProcessorDomainCollection UrlDownloaderList
+        [ConfigurationProperty("pkpassProcessorList")]
+        internal PkpassProcessorCollection ProcessorsList
         {
             get
             {
-                return (PkpassProcessorDomainCollection)this["pkpassProcessorDomainList"];
+                return (PkpassProcessorCollection)this["pkpassProcessorList"];
             }
         }
 
         [ConfigurationProperty("cloudService")]
-        public CloudServiceConfigurationElement CloudService
+        internal CloudServiceConfigurationElement CloudService
         {
             get
             {
@@ -22,12 +22,12 @@ namespace pkpass2cal.Configuration
             }
         }
 
-        [ConfigurationProperty("pkpassProcessorIssuerList")]
-        public PkpassProcessorIssuerCollection PassTypeList
+        [ConfigurationProperty("bannedDomains")]
+        internal BannedDomainCollection BannedDomains
         {
             get
             {
-                return (PkpassProcessorIssuerCollection)this["pkpassProcessorIssuerList"];
+                return (BannedDomainCollection)this["bannedDomains"];
             }
         }
     }    

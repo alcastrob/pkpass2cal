@@ -17,11 +17,15 @@ namespace pkpass2cal.PkpassProcessors
 
         public virtual PkpassData DownloadData(Uri uri)
         {
-            string fileName = cloudStorageHelper.GetHomePath() + Config.CloudService.LocalDirectory + uri.Query.Split(new char[] { '/' }).Last();
-            //https://venta.renfe.com/vol/passbookEmail.do?pkpass=2017-12-26/MKH2KS0CNH34N9B5XE56OM.pkpass
-            string fileUrl = "https://w4.renfe.es/passbook/" + uri.Query.Split(new char[] { '=' }).Last();
-            FileDownloader.DownloadFile(fileUrl, fileName);
-            return PkpassManager.OpenPkpass(fileName);
+            string destinationFileName = cloudStorageHelper.GetHomePath() + Config.CloudService.LocalDirectory + uri.Query.Split(new char[] { '/' }).Last();
+            
+            // The original Uri points to a blank page with a tiny javascript snippet that triggers the download. 
+            // https://venta.renfe.com/vol/passbookEmail.do?pkpass=2017-12-26/MKH2KS0CNH34N9B5XE56OM.pkpass
+            // We will build the final link and save to call to the blank page instead.
+
+            string finalUrl = "https://w4.renfe.es/passbook/" + uri.Query.Split(new char[] { '=' }).Last();
+            FileDownloader.DownloadFile(finalUrl, destinationFileName);
+            return PkpassManager.OpenPkpass(destinationFileName);
         }
 
         public PkpassData GetData(string filePath)

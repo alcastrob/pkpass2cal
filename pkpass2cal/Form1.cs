@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,13 +7,13 @@ namespace pkpass2cal
 {
     public partial class Form1 : Form
     {
-        AppManager manager;
+        AppService manager;
 
         public Form1()
         {
             InitializeComponent();
             AllowDrop = true;
-            manager = new AppManager();
+            manager = new AppService();
         }
 
         /// <summary>
@@ -23,7 +24,7 @@ namespace pkpass2cal
         {
             InitializeComponent();
             AllowDrop = true;
-            manager = new AppManager();
+            manager = new AppService();
             if (Path.GetExtension(filePath) == ".pkpass")
             {
                 manager.ProcessFile(filePath);
@@ -32,21 +33,28 @@ namespace pkpass2cal
 
         private void Form1_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetFormats().Contains("UniformResourceLocator"))
+            try
             {
-                string url = e.Data.GetData("System.String").ToString();
-                manager.ProcessUrl(url);
-            }
-            else
-            {
-                string[] files = (string[])(e.Data.GetData(DataFormats.FileDrop, false));
-                foreach (string file in files)
+                if (e.Data.GetFormats().Contains("UniformResourceLocator"))
                 {
-                    if (Path.GetExtension(file) == ".pkpass")
+                    string url = e.Data.GetData("System.String").ToString();
+                    manager.ProcessUrl(url);
+                }
+                else
+                {
+                    string[] files = (string[])(e.Data.GetData(DataFormats.FileDrop, false));
+                    foreach (string file in files)
                     {
-                        manager.ProcessFile(file);
+                        if (Path.GetExtension(file) == ".pkpass")
+                        {
+                            manager.ProcessFile(file);
+                        }
                     }
                 }
+            }
+            catch (ApplicationException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

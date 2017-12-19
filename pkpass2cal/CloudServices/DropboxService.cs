@@ -4,7 +4,7 @@ using System.IO;
 
 namespace pkpass2cal.CloudServices
 {
-    public class DropboxHelper : ICloudStorageHelper
+    public class DropboxService : ICloudStorageHelper
     {
         public string GetHomePath()
         {

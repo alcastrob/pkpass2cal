@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace pkpass2cal.Configuration
 {
-    public class PkpassProcessorDomainElement : ConfigurationElement
+    internal class PkpassProcessorElement : ConfigurationElement
     {
-        [ConfigurationProperty("domain", IsKey = true, IsRequired = true)]
-        public string Domain
+        [ConfigurationProperty("domain", IsKey = true, IsRequired = false)]
+        internal string Domain
         {
             get
             {
@@ -19,7 +14,7 @@ namespace pkpass2cal.Configuration
         }
 
         [ConfigurationProperty("type", IsKey = false, IsRequired = true)]
-        public string Type
+        internal string Type
         {
             get
             {
@@ -28,7 +23,7 @@ namespace pkpass2cal.Configuration
         }
 
         [ConfigurationProperty("assembly", IsKey = false, IsRequired = false)]
-        public string Assembly
+        internal string Assembly
         {
             get
             {
@@ -40,6 +35,15 @@ namespace pkpass2cal.Configuration
                 {
                     return System.Reflection.Assembly.GetExecutingAssembly().FullName;
                 }
+            }
+        }
+
+        [ConfigurationProperty("identifierType", IsKey = true, IsRequired = false)]
+        internal string IdentifierType
+        {
+            get
+            {
+                return this["identifierType"].ToString();
             }
         }
     }

@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace pkpass2cal.Configuration
 {
-    public static class Config
+    internal static class Config
     {
         static PkPassProcessorConfigurationSection config = ConfigurationManager.GetSection("pkpassProcessorConfiguration") as PkPassProcessorConfigurationSection;
 
-        public static PkpassProcessorDomainCollection UrlDownloaderList
+        internal static PkpassProcessorCollection ProcessorsList
         {
             get
             {
-                return config.UrlDownloaderList;
+                return config.ProcessorsList;
             }
         }
 
-        public static CloudServiceConfigurationElement CloudService
+        internal static CloudServiceConfigurationElement CloudService
         {
             get
             {
@@ -27,11 +22,11 @@ namespace pkpass2cal.Configuration
             }
         }
 
-        public static PkpassProcessorIssuerCollection PassTypeList
+        internal static BannedDomainCollection BannedDomainList
         {
             get
             {
-                return config.PassTypeList;
+                return config.BannedDomains;
             }
         }
     }

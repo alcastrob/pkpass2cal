@@ -62,17 +62,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppManager.cs" />
+    <Compile Include="AppService.cs" />
+    <Compile Include="Configuration\BannedDomainCollection.cs" />
+    <Compile Include="Configuration\BannedDomainElement.cs" />
     <Compile Include="Configuration\CloudServiceConfigurationElement.cs" />
     <Compile Include="Configuration\Config.cs" />
     <Compile Include="Configuration\PkPassProcessorConfigurationSection.cs" />
     <Compile Include="CloudServices\DropboxConfig.cs" />
-    <Compile Include="CloudServices\DropboxHelper.cs" />
+    <Compile Include="CloudServices\DropboxService.cs" />
     <Compile Include="CloudServices\ICloudStorageHelper.cs" />
-    <Compile Include="Configuration\PkpassProcessorDomainCollection.cs" />
-    <Compile Include="Configuration\PkpassProcessorDomainElement.cs" />
-    <Compile Include="Configuration\PkpassProcessorIssuerCollection.cs" />
-    <Compile Include="Configuration\PkpassProcessorIssuerElement.cs" />
+    <Compile Include="Configuration\PkpassProcessorCollection.cs" />
+    <Compile Include="Configuration\PkpassProcessorElement.cs" />
     <Compile Include="Factories\CloudServiceFactory.cs" />
     <Compile Include="FileDownloader.cs" />
     <Compile Include="Form1.cs">
@@ -82,6 +82,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Calendar\GCalManager.cs" />
+    <Compile Include="PkpassProcessors\DummyProcessor.cs" />
     <Compile Include="PkpassProcessors\IPkpassProcessor.cs" />
     <Compile Include="Entities\PkpassData.cs" />
     <Compile Include="PkpassManager.cs" />

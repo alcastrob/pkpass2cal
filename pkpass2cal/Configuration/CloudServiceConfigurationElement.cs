@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace pkpass2cal.Configuration
 {
-    public class CloudServiceConfigurationElement : ConfigurationElement
+    internal class CloudServiceConfigurationElement : ConfigurationElement
     {
         [ConfigurationProperty("localDirectory", IsRequired = true)]
-        public string LocalDirectory
+        internal string LocalDirectory
         {
             get
             {
@@ -19,7 +19,7 @@ namespace pkpass2cal.Configuration
         }
 
         [ConfigurationProperty("type", IsKey = false, IsRequired = true)]
-        public string Type
+        internal string Type
         {
             get
             {
@@ -28,7 +28,7 @@ namespace pkpass2cal.Configuration
         }
 
         [ConfigurationProperty("assembly", IsKey = false, IsRequired = false)]
-        public string Assembly
+        internal string Assembly
         {
             get
             {
